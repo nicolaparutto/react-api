@@ -40,7 +40,13 @@ function Blog() {
                            <div className="card-text">
                               <h2>{post.title}</h2>
                               <p>{post.content}</p>
+                              <hr />
                               <p><strong>Tags: </strong>{post.tags.join(", ")}</p>
+                              <div className="card-trash">
+                                 <div className="trash">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                 </div>
+                              </div>
                            </div>
                         </div>
                      </div>
