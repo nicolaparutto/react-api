@@ -64,6 +64,30 @@ function Blog() {
                   ))}
                </div>
             </div>
+
+
+            <div className="form-container">
+               <h1>Aggiungi un post</h1>
+               <form action="">
+                  <div>
+                     <h4>Titolo del post</h4>
+                     <input type="text" name="" id="" placeholder='Inserisci il titolo' />
+                  </div>
+                  <div>
+                     <h4>Immagine del post</h4>
+                     <input type="text" name="" id="" placeholder="Inserisci il link dell'immagine" />
+                  </div>
+                  <div>
+                     <h4>Testo del post</h4>
+                     <input type="text" name="" id="" placeholder='Inserisci il testo' />
+                  </div>
+                  <div>
+                     <h4>Tags del post</h4>
+                     <input type="text" name="" id="" placeholder='Inserisci i tags (separati da una virgola)' />
+                  </div>
+                  <button className='btn'>Crea</button>
+               </form>
+            </div>
          </section>
       </>
    )
