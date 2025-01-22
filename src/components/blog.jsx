@@ -7,6 +7,9 @@ function Blog() {
    //API default endpoint:
    const endpointApi = "http://localhost:3000";
 
+   //Variabile di stato che contiene l'array dei post dell'API:
+   const [postsList, setPostsList] = useState([])
+
    //Chiamata API:
    const fetchPosts = () => {
       axios.get(`${endpointApi}/posts`)
@@ -18,8 +21,16 @@ function Blog() {
          })
    }
 
-   //Variabile di stato che contiene l'array dei post dell'API:
-   const [postsList, setPostsList] = useState([])
+   //Funzione di elliminazione di un post:
+   const handlerRemove = (id) => {
+      axios.delete(`${endpointApi}/posts/${id}`)
+         .then(res => {
+            fetchPosts() //Richiamo la funzione che mi effettua la chiamata all'api. E quindi la lista dei post, mi viene sovrascritta con la lista aggiornata.
+         })
+         .catch(error => {
+            console.error("Errore durante l'elliminazione di un post", error)
+         })
+   }
 
    useEffect(() => {
       fetchPosts()
@@ -43,8 +54,8 @@ function Blog() {
                               <hr />
                               <p><strong>Tags: </strong>{post.tags.join(", ")}</p>
                               <div className="card-trash">
-                                 <div className="trash">
-                                    <i class="fa-solid fa-trash-can"></i>
+                                 <div className="trash" onClick={() => handlerRemove(post.id)}>
+                                    <i className="fa-solid fa-trash-can"></i>
                                  </div>
                               </div>
                            </div>
