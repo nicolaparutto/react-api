@@ -7,8 +7,17 @@ function Blog() {
    //API default endpoint:
    const endpointApi = "http://localhost:3000";
 
+   const initialFormData = {
+      title: "",
+      content: "",
+      image: "",
+      tags: []
+   }
+
    //Variabile di stato che contiene l'array dei post dell'API:
    const [postsList, setPostsList] = useState([])
+   //Variabile di stato che contiene lo stato di default dell'oggetto che deve popolarsi all'inivio del form con un nuovo post:
+   const [formData, setFormData] = useState(initialFormData)
 
    //Chiamata API:
    const fetchPosts = () => {
@@ -30,6 +39,14 @@ function Blog() {
          .catch(error => {
             console.error("Errore durante l'elliminazione di un post", error)
          })
+   }
+   // Funzione di creazione di un nuovo post:
+   const handlerNewPost = (e) => {
+      setFormData((prevFormData) => ({
+         ...prevFormData,
+         [e.target.name]: e.target.value
+      }))
+      //console.log(formData)
    }
 
    useEffect(() => {
@@ -71,19 +88,19 @@ function Blog() {
                <form action="">
                   <div>
                      <h4>Titolo del post</h4>
-                     <input type="text" name="" id="" placeholder='Inserisci il titolo' />
+                     <input type="text" name="title" placeholder='Inserisci il titolo' onChange={handlerNewPost} value={formData.title} />
                   </div>
                   <div>
                      <h4>Immagine del post</h4>
-                     <input type="text" name="" id="" placeholder="Inserisci il link dell'immagine" />
+                     <input type="text" name="image" placeholder="Inserisci il link dell'immagine" onChange={handlerNewPost} value={formData.image} />
                   </div>
                   <div>
                      <h4>Testo del post</h4>
-                     <input type="text" name="" id="" placeholder='Inserisci il testo' />
+                     <input type="text" name="content" placeholder='Inserisci il testo' onChange={handlerNewPost} value={formData.content} />
                   </div>
                   <div>
                      <h4>Tags del post</h4>
-                     <input type="text" name="" id="" placeholder='Inserisci i tags (separati da una virgola)' />
+                     <input type="text" name="tags" placeholder='Inserisci i tags (separati da una virgola)' onChange={handlerNewPost} value={formData.tags} />
                   </div>
                   <button className='btn'>Crea</button>
                </form>
