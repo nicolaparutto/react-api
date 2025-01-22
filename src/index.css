@@ -31,3 +31,23 @@ body {
   width: calc(100% / 3);
   padding: 10px;
 }
+
+.card-content {
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.card-img {
+  height: 40%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0px 0px;
+  }
+}
+
+.card-text {
+  height: 60%;
+  margin: 10px;
+}
