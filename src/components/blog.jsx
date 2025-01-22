@@ -49,6 +49,25 @@ function Blog() {
       //console.log(formData)
    }
 
+   //Funzione di gestione al click del bottone del form:
+   const handlerSendNewPost = (e) => {
+      e.preventDefault()
+      //conversione della stringa dei tag, in un array:
+      const tagsConversion = formData.tags.split(",").map(tag => tag.trim());
+
+      const updatedPost = {
+         ...formData,
+         tags: tagsConversion
+      }
+      //Effetto la chiamata all'API con il metodo post, e gli passo il nuovo oggetto:
+      axios.post(`${endpointApi}/posts`, updatedPost)
+         .then(res => {
+            setPostsList(res.data) //Al "send" del nuovo post, mi faccio restituire direttamente la lista dei dati del'API aggiornata
+         })
+      //In fine resetto il form:
+      setFormData(initialFormData)
+   }
+
    useEffect(() => {
       fetchPosts()
    }, [])
@@ -99,10 +118,10 @@ function Blog() {
                      <input type="text" name="content" placeholder='Inserisci il testo' onChange={handlerNewPost} value={formData.content} />
                   </div>
                   <div>
-                     <h4>Tags del post</h4>
-                     <input type="text" name="tags" placeholder='Inserisci i tags (separati da una virgola)' onChange={handlerNewPost} value={formData.tags} />
+                     <h4>Tags del post (separati da una virgola!!!)</h4>
+                     <input type="text" name="tags" placeholder='Inserisci i tags' onChange={handlerNewPost} value={formData.tags} />
                   </div>
-                  <button className='btn'>Crea</button>
+                  <button className='btn' onClick={handlerSendNewPost}>Crea</button>
                </form>
             </div>
          </section>
