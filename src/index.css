@@ -1,0 +1,33 @@
+/*css reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*defaut css*/
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+/*utility*/
+.container {
+  margin: 50px auto;
+  max-width: 1200px;
+}
+
+.debug {
+  border: 1px dashed red;
+}
+
+
+/*blog section*/
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: calc(100% / 3);
+  padding: 10px;
+}
