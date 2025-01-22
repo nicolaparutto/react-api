@@ -125,6 +125,22 @@ function Blog() {
                </form>
             </div>
          </section>
+         <section className='container'>
+            <div className='test-data'>
+               <h1>Dati per testarne il funzionamento:</h1>
+               <span>Titolo:</span>
+               <p>Torta di Mele</p>
+               <hr />
+               <span>Link immagine:</span>
+               <p>https://img.freepik.com/foto-gratuito/close-up-deliziosi-pezzi-di-torta_23-2148413979.jpg?t=st=1737571917~exp=1737575517~hmac=2e0d4002e09b964fd667e86d5e947b3208bba5b9938174e6b24c5fbdc91c5611&w=1060</p>
+               <hr />
+               <span>Contenuto:</span>
+               <p>Morbida o croccante, con crema o senza, con base frolla o sfoglia: la torta di mele è un dolce dal profumo inconfondibile, amato da grandi e piccini. Una preparazione che non conosce confini, diffusa un po' in tutto il mondo. Fra le prime testimonianze scritte, quella di Guillaume Tirel, chef francese del Trecento anche noto con lo pseudonimo Taillevent, che parla della tarte aux pommes, torta simile all'apple pie americana, ma con cipolle appassite nel ripieno, tecnica molto in voga all'epoca per conferire dolcezza ai piatti.</p>
+               <hr />
+               <span>Tags</span>
+               <p>Dolci, Torte di Frutta, Torte, Ricette Buonissime</p>
+            </div>
+         </section>
       </>
    )
 }
